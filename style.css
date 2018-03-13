@@ -1,0 +1,12 @@
+a.navbar-brand {
+    width: 10%;
+}
+a.navbar-brand img {
+    vertical-align: middle;
+    border-style: none;
+    width: 30%;
+}
+.nav-item:last-child {
+    right: 10%;
+    position: absolute;
+}
