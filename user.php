@@ -12,20 +12,51 @@
     <title>Hello, world!</title>
   </head>
   <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+	  <a class="navbar-brand" href="index.php">HOME</a>
+	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+	    <span class="navbar-toggler-icon"></span>
+	  </button>
+	  <div class="collapse navbar-collapse" id="navbarNav">
+	    <ul class="navbar-nav">
+	      <li class="nav-item">
+	        <a class="nav-link" href="departments.php">Departments</a>
+	      </li>
+	      <li class="nav-item">
+	        <a class="nav-link" href="designations.php">Designations</a>
+	      </li>
+	      <li class="nav-item">
+	        <a class="nav-link" href="employee.php">Employee</a>
+	      </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">User </a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="view_user.php">View User</a>
+            </div>
+          </li>
+	      <li class="nav-item dropdown">
+		    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Hi, </a>
+		    <div class="dropdown-menu">
+		      <a class="dropdown-item" href="logout.php">Logout</a>
+		    </div>
+		  </li>
+	    </ul>
+	  </div>
+</nav>
 
-    <br> <br>
+    <br>
 	<div class="container">
 	<div class="row">
 		<div class="col-md-6 offset-md-3">
 			<form action="confirmRegistration.php" method="post" enctype="multipart/form-data">
                 <div class="form-group">
-                    <input type="text" class="form-control" placeholder="User Name" name="re_name">
+                    <input type="text" class="form-control" placeholder="User Name" name="re_name" required="">
                 </div>
                 <div class="form-group">
-                    <input type="email" class="form-control" placeholder="User Email" name="re_email">
+                    <input type="email" class="form-control" placeholder="User Email" name="re_email" required="">
                 </div>
                 <div class="form-group">
-                    <input type="text" class="form-control" placeholder="User Phone" name="re_phone">
+                    <input type="text" class="form-control" placeholder="User Phone" name="re_phone" required="">
                 </div>
                 
                 <div class="form-group">

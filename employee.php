@@ -30,6 +30,7 @@
 
     $sql 	= " SELECT * FROM employees e, departments dp, designations dg WHERE e.em_dp_id = dp.department_id AND e.em_dg_id = dg.designation_id ";
     $views = mysqli_query( $conn, $sql );
+    
     $sql = " SELECT * FROM departments ";
     $dps = mysqli_query( $conn, $sql );
 

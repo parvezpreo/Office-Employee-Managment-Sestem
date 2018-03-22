@@ -32,7 +32,8 @@
 		$sql = "INSERT INTO `registrations` ( `re_name`, `re_email`, `re_phone`, `re_image`, `re_pass`, `confirm_pass`, `re_status`, `re_role`) VALUES ( '$re_name', '$re_email', '$re_phone', '$re_image', '$re_pass', '$confirm_pass', '$re_status', '$role') ";
 
 		if (mysqli_query( $conn, $sql )) {
-			echo "data inserted sucessfully!";					
+			echo "data inserted sucessfully!";
+			header("Refresh:2; login.php");				
 		} else {
 			echo "try agin ";
 		}		

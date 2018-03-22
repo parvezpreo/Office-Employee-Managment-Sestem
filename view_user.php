@@ -1,9 +1,13 @@
-<?php
+<?php	
+	include 'db.php';
 	session_start();
 	if ($_SESSION['re_email'] == false) {
 		header("Location: login.php");
 		exit();
 	}
+
+	$sql = " SELECT * FROM registrations ";
+	$userView = mysqli_query( $conn, $sql );
 ?>
 <!doctype html>
 <html lang="en">
@@ -43,13 +47,6 @@
             </div>
           </li>
 	      <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Salary</a>
-            <div class="dropdown-menu">
-              <a class="dropdown-item" href="add_salary.php">Add Salary</a>
-              <a class="dropdown-item" href="view_salary.php">View Salary</a>
-            </div>
-          </li>
-	      <li class="nav-item dropdown">
 		    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Hi, <?php echo $_SESSION['re_name']; ?></a>
 		    <div class="dropdown-menu">
 		      <a class="dropdown-item" href="logout.php">Logout</a>
@@ -58,12 +55,38 @@
 	    </ul>
 	  </div>
 </nav>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th>Image</th>
+      <th>User</th>
+      <th>Role</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <?php foreach ( $userView as $view ) { ?>
+            
+        <tr>
+			<td><?php echo $view['re_name']; ?></td>
+			<td><?php echo $view['re_email']; ?></td>
+			<td><?php echo $view['re_phone']; ?></td>
+			<td><img style="width: 100px;" src="img/<?php echo $view['re_image']; ?>" alt=""></td>
+			<td><?php echo $view['re_status']; ?></td>
+			<td><?php echo $view['re_role']; ?></td>
+		  	<td>
+		  		<a href="user_edit.php?id=<?php echo $view['re']; ?>">Edit</a> |
+		  		<a href="re_delete.php?id=<?php echo $view['re']; ?>">Delete</a> |
+		  		<a href="">View</a>
+		  	</td>
+		</tr>
 
-<div class="container">
-	<div class="row">
-		<div class="col-md-12"><h2 class="text-center mt-5">Welcome To The Employee Management System</h2></div>
-	</div>
-</div>
+    <?php } ?>
+  </tbody>
+</table>
 
 <?php require('footer.php'); ?>
 

@@ -1,23 +1,3 @@
-<?php
-    include 'db.php';
-
-    if ( isset($_POST['submit'])) {
-        $re_email = $_POST['re_email'];
-        $re_pass = $_POST['re_pass'];
-        $results = $conn->query("SELECT * FROM registrations WHERE re_email = '$re_email' AND re_pass = '$re_pass'");
-        $row = $results->fetch_array(MYSQLI_BOTH);
-
-        session_start();
-        $_SESSION['re'] = $row['re'];
-        $_SESSION['re_email'] = $row['re_email'];
-        $_SESSION['re_name'] = $row['re_name'];
-        $_SESSION['re_image'] = $row['re_image'];
-
-        header("Location: index.php");
-        
-    }
-
-?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -33,12 +13,11 @@
   <body>
 
 
-        <div class="mt-5"></div>
-        <br> <br>
+        <br> <br> <br> <br><br> <br><br> <br>
     	<div class="container">
     	<div class="row">
     		<div class="col-md-6 offset-md-3">
-    			<form action="" method="post">
+    			<form action="welcome.php" method="post">
                     <div class="form-group">
                         <input type="email" placeholder="Enter Email" class="form-control" name="re_email">
                     </div>
